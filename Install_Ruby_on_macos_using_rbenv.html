@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html -->
+<html lang="en" class="  webp webp-alpha webp-animation webp-lossless"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Page definitions -->
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="origin">
+  <!-- /Page definitions -->
+
+  <!-- Search engine optimization -->
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Install Ruby on macos using rbenv | thbe.org</title>
+<meta name="generator" content="Jekyll v4.2.1">
+<meta property="og:title" content="Install Ruby on macos using rbenv">
+<meta name="author" content="Thomas Bendler">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Although Ruby is part of macOS, its version is quite often not what you need in your development project. Recently I had the same problem and I searched for a solution to use multiple Ruby installations with different versions on my MacBook. The outcome was a combination of HomeBrew and rbenv which I would like to share in this blog post.">
+<meta property="og:description" content="Although Ruby is part of macOS, its version is quite often not what you need in your development project. Recently I had the same problem and I searched for a solution to use multiple Ruby installations with different versions on my MacBook. The outcome was a combination of HomeBrew and rbenv which I would like to share in this blog post.">
+<link rel="canonical" href="https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html">
+<meta property="og:url" content="https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html">
+<meta property="og:site_name" content="thbe.org">
+<meta property="og:image" content="https://www.thbe.org/static/images/author/thbe.png">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2021-03-18T16:21:04+01:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="https://www.thbe.org/static/images/author/thbe.png">
+<meta property="twitter:title" content="Install Ruby on macos using rbenv">
+<meta name="twitter:site" content="@thbe007">
+<meta name="twitter:creator" content="@Thomas Bendler">
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.thbe.org/static/images/author/thbe.png"},"name":"Thomas Bendler"},"image":"https://www.thbe.org/static/images/author/thbe.png","url":"https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html","headline":"Install Ruby on macos using rbenv","dateModified":"2021-03-18T16:21:04+01:00","datePublished":"2021-03-18T16:21:04+01:00","author":{"@type":"Person","name":"Thomas Bendler"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html"},"description":"Although Ruby is part of macOS, its version is quite often not what you need in your development project. Recently I had the same problem and I searched for a solution to use multiple Ruby installations with different versions on my MacBook. The outcome was a combination of HomeBrew and rbenv which I would like to share in this blog post.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <!-- /Search engine optimization -->
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://code.jquery.com/">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net/">
+  <!-- /Preconnect -->
+
+  <!-- Favicon -->
+  <meta name="theme-color" content="#ffffff">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.thbe.org/static/images/site/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.thbe.org/static/images/site/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.thbe.org/static/images/site/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.thbe.org/static/images/site/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="manifest" href="https://www.thbe.org/static/manifest/site.webmanifest">
+  <!-- /Favicon -->
+
+  <!-- Fontawesome stylesheet -->
+  <link rel="stylesheet" type="text/css" href="./Install_Ruby_on_macos_using_rbenv_files/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="./Install_Ruby_on_macos_using_rbenv_files/solid.css">
+  <link rel="stylesheet" type="text/css" href="./Install_Ruby_on_macos_using_rbenv_files/brands.css">
+  <!-- /Fontawesome stylesheet -->
+
+  <!-- Bootstrap stylesheet -->
+  <link rel="stylesheet" type="text/css" href="./Install_Ruby_on_macos_using_rbenv_files/bootstrap.css">
+  <!-- /Bootstrap stylesheet -->
+
+  <!-- Custom stylesheet -->
+  <link rel="stylesheet" type="text/css" href="./Install_Ruby_on_macos_using_rbenv_files/main.css">
+  <!-- /Custom stylesheet -->
+<style type="text/css"></style><style type="text/css">.privacypolicies-com---reset{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-ms-overflow-style:scrollbar;-webkit-tap-highlight-color:transparent;margin:0;font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;text-align:left;background-color:#fff}.privacypolicies-com---reset *,.privacypolicies-com---reset *::before,.privacypolicies-com---reset *::after{box-sizing:border-box}.privacypolicies-com---reset a,.privacypolicies-com---reset li,.privacypolicies-com---reset p,.privacypolicies-com---reset h1,.privacypolicies-com---reset h2,.privacypolicies-com---reset input,.privacypolicies-com---reset button,.privacypolicies-com---reset select{border-style:none;box-shadow:none;margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;outline:none}@-ms-viewport{.privacypolicies-com---reset{width:device-width}}.privacypolicies-com---reset [tabindex="-1"]:focus{outline:0 !important}.privacypolicies-com---reset h1,.privacypolicies-com---reset h2,.privacypolicies-com---reset h3,.privacypolicies-com---reset h4,.privacypolicies-com---reset h5,.privacypolicies-com---reset h6{margin-top:0;margin-bottom:0;color:#000}.privacypolicies-com---reset p{margin-top:0;margin-bottom:1rem}.privacypolicies-com---reset div{display:block}.privacypolicies-com---reset ol,.privacypolicies-com---reset ul,.privacypolicies-com---reset dl{margin-top:0;margin-bottom:1rem}.privacypolicies-com---reset ol ol,.privacypolicies-com---reset ul ul,.privacypolicies-com---reset ol ul,.privacypolicies-com---reset ul ol{margin-bottom:0}.privacypolicies-com---reset b,.privacypolicies-com---reset strong{font-weight:bolder}.privacypolicies-com---reset small{font-size:80%}.privacypolicies-com---reset a{color:#007bff;text-decoration:none;background-color:transparent;-webkit-text-decoration-skip:objects}.privacypolicies-com---reset a:hover{color:#0056b3;text-decoration:underline}.privacypolicies-com---reset a:not([href]):not([tabindex]){color:inherit;text-decoration:none}.privacypolicies-com---reset a:not([href]):not([tabindex]):hover,.privacypolicies-com---reset a:not([href]):not([tabindex]):focus{color:inherit;text-decoration:none}.privacypolicies-com---reset a:not([href]):not([tabindex]):focus{outline:0}.privacypolicies-com---reset label{display:inline-block;margin-bottom:0.5rem}.privacypolicies-com---reset button{border-radius:2px;padding:.5rem 1rem;outline:none;background:#dcdae5;color:#111;cursor:pointer;border:none;transition:all ease .3s}.privacypolicies-com---reset button:focus{outline:none}.privacypolicies-com---reset select{border-style:none}.privacypolicies-com---reset input,.privacypolicies-com---reset button,.privacypolicies-com---reset select,.privacypolicies-com---reset optgroup,.privacypolicies-com---reset textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}.privacypolicies-com---reset button,.privacypolicies-com---reset input{overflow:visible}.privacypolicies-com---reset button,.privacypolicies-com---reset select{text-transform:none}.privacypolicies-com---reset button,.privacypolicies-com---reset html [type="button"],.privacypolicies-com---reset [type="reset"],.privacypolicies-com---reset [type="submit"]{-webkit-appearance:button}.privacypolicies-com---reset button::-moz-focus-inner,.privacypolicies-com---reset [type="button"]::-moz-focus-inner,.privacypolicies-com---reset [type="reset"]::-moz-focus-inner,.privacypolicies-com---reset [type="submit"]::-moz-focus-inner{padding:0;border-style:none}.privacypolicies-com---reset input[type="radio"],.privacypolicies-com---reset input[type="checkbox"]{box-sizing:border-box;padding:0}.privacypolicies-com---reset [hidden]{display:none !important}
+</style><style type="text/css">.privacypolicies-com---nb{overflow:auto;z-index:99999999999;font-size:16px}.privacypolicies-com---nb .cc-nb-main-container{padding:3rem}.privacypolicies-com---nb .cc-nb-title{font-size:24px;font-weight:600}.privacypolicies-com---nb .cc-nb-text{font-size:16px;margin:0 0 1.25rem 0}.privacypolicies-com---nb .cc-nb-okagree,.privacypolicies-com---nb .cc-nb-reject,.privacypolicies-com---nb .cc-nb-changep{font-weight:bold;font-size:14px;margin-right:0.25rem !important;margin-bottom:0.25rem !important}@media (max-width: 480px){.privacypolicies-com---nb .cc-nb-okagree,.privacypolicies-com---nb .cc-nb-reject,.privacypolicies-com---nb .cc-nb-changep{display:block;width:100%}}.privacypolicies-com---nb-headline{right:0;top:auto;bottom:0;left:0;max-width:100%;position:relative}@media (max-width: 320px), (max-height: 480px){.privacypolicies-com---nb-headline{overflow:auto;height:200px;max-width:100%;right:0;top:auto;bottom:0;left:auto;position:fixed}}.privacypolicies-com---nb-simple{right:0;top:auto;bottom:0;left:auto;max-width:50%;position:fixed}@media screen and (max-width: 600px){.privacypolicies-com---nb-simple{max-width:80%}}@media (max-width: 320px), (max-height: 480px){.privacypolicies-com---nb-simple{overflow:auto;height:200px;max-width:100%}}.privacypolicies-com---nb-interstitial-overlay{position:fixed;top:0;left:0;height:100%;width:100%;background:rgba(0,0,0,0.8);z-index:9999999999}.privacypolicies-com---nb-interstitial{right:3vw;top:3vh;left:3vw;max-width:100%;position:fixed}@media (max-width: 320px), (max-height: 480px){.privacypolicies-com---nb-interstitial{overflow:auto;height:200px;right:0;top:auto;bottom:0;left:auto;position:fixed}}.privacypolicies-com---nb-standalone{position:fixed;top:0;left:0;height:100%;width:100%}@media (max-width: 320px), (max-height: 480px){.privacypolicies-com---nb-standalone{overflow:auto;height:200px;max-width:100%;right:0;top:auto;bottom:0;left:auto;position:fixed}}.privacypolicies-com---pc-overlay{width:100%;height:100%;position:fixed;background:rgba(0,0,0,0.5);z-index:999999999999;top:0;left:0;display:none}@media screen and (max-width: 600px){.privacypolicies-com---pc-overlay{overflow-y:scroll}}.privacypolicies-com---pc-dialog{position:absolute;margin:30px auto;width:750px;max-width:90%;height:auto;left:0;right:0}.privacypolicies-com---pc-dialog>div{width:100%}.privacypolicies-com---pc-dialog .cc-pc-container{width:100%;display:flex;background:#fff;flex-direction:column}.privacypolicies-com---pc-dialog .cc-pc-head{background:#fff;color:#111;display:flex;flex-direction:row;justify-content:space-between}@media screen and (max-width: 600px){.privacypolicies-com---pc-dialog .cc-pc-head{flex-direction:column}}.privacypolicies-com---pc-dialog .cc-pc-head-title{display:flex;padding-left:15px;flex-direction:column;justify-content:center;align-items:baseline}@media screen and (max-width: 600px){.privacypolicies-com---pc-dialog .cc-pc-head-title{align-items:center;padding:15px 0 0 0}}.privacypolicies-com---pc-dialog .cc-pc-head-title-text{font-size:16px;line-height:1.5;margin:0}.privacypolicies-com---pc-dialog .cc-pc-head-title-headline{font-size:20px;font-weight:600;margin:0}.privacypolicies-com---pc-dialog .cc-pc-head-lang{display:flex;align-items:center;padding-right:15px;min-height:80px;justify-content:center}@media screen and (max-width: 600px){.privacypolicies-com---pc-dialog .cc-pc-head-lang{padding:15px 0;min-height:20px}}.privacypolicies-com---pc-dialog .cc-pc-head-close{display:flex;align-items:center;justify-content:center;margin-left:15px}.privacypolicies-com---pc-dialog .cc-cp-body{display:flex;flex-direction:row;align-items:stretch;background:#292929;color:#f5f5f5;border-bottom:none}@media screen and (max-width: 600px){.privacypolicies-com---pc-dialog .cc-cp-body{flex-direction:column}}.privacypolicies-com---pc-dialog .cc-cp-body-tabs{font-family:Arial, sans-serif !important;width:150px;margin:0;padding:0;background:#e6e6e6;min-width:150px}@media screen and (max-width: 600px){.privacypolicies-com---pc-dialog .cc-cp-body-tabs{width:100%}}.privacypolicies-com---pc-dialog .cc-cp-body-tabs-item{margin:0;padding:0;float:left;display:block;width:100%;color:#666;background:#e6e6e6;border-bottom:1px solid #ccc;border-right:1px solid #ccc;transition:all ease .1s;box-sizing:content-box}@media screen and (max-width: 600px){.privacypolicies-com---pc-dialog .cc-cp-body-tabs-item{border-right:0}}.privacypolicies-com---pc-dialog .cc-cp-body-tabs-item[active=true]{background:#292929;color:#f5f5f5}.privacypolicies-com---pc-dialog .cc-cp-body-tabs-item-link{text-decoration:none;color:#666;display:block;padding:10px 5px 10px 10px;font-weight:700;font-size:12px;line-height:19px;position:relative}.privacypolicies-com---pc-dialog .cc-cp-body-content{background:#292929;color:#f5f5f5}.privacypolicies-com---pc-dialog .cc-cp-body-content-entry{width:100%;display:none;padding:25px;box-sizing:border-box}.privacypolicies-com---pc-dialog .cc-cp-body-content-entry[active=true]{display:block}.privacypolicies-com---pc-dialog .cc-cp-body-content-entry-title{font-size:24px;font-weight:600}.privacypolicies-com---pc-dialog .cc-cp-body-content-entry-text{font-size:16px;line-height:1.5}.privacypolicies-com---pc-dialog .cc-cp-foot{background:#f2f2f2;display:flex;flex-direction:row;align-items:center;border-top:1px solid #ccc;justify-content:space-between}.privacypolicies-com---pc-dialog .cc-cp-foot-byline{padding:20px 10px;font-size:14px;color:#333;display:block !important}.privacypolicies-com---pc-dialog .cc-cp-foot-byline a{color:#999}.privacypolicies-com---pc-dialog .cc-cp-foot-save{margin-right:10px;opacity:.9;transition:all ease .3s;font-size:14px;font-weight:bold;height:auto}.privacypolicies-com---pc-dialog .cc-cp-foot-save:hover{opacity:1}.privacypolicies-com---pc-dialog input[type="checkbox"].cc-custom-checkbox{position:absolute;margin:2px 0 0 16px;cursor:pointer}.privacypolicies-com---pc-dialog input[type="checkbox"].cc-custom-checkbox+label{position:relative;padding:4px 0 0 50px;line-height:2.0em;cursor:pointer;display:inline;font-size:14px}.privacypolicies-com---pc-dialog input[type="checkbox"].cc-custom-checkbox+label:before{content:"";position:absolute;display:block;left:0;top:0;width:40px;height:24px;border-radius:16px;background:#fff;border:1px solid #d9d9d9;-webkit-transition:all 0.3s;transition:all 0.3s}.privacypolicies-com---pc-dialog input[type="checkbox"].cc-custom-checkbox+label:after{content:"";position:absolute;display:block;left:0px;top:0px;width:24px;height:24px;border-radius:16px;background:#fff;border:1px solid #d9d9d9;-webkit-transition:all 0.3s;transition:all 0.3s}.privacypolicies-com---pc-dialog input[type="checkbox"].cc-custom-checkbox+label:hover:after{box-shadow:0 0 5px rgba(0,0,0,0.3)}.privacypolicies-com---pc-dialog input[type="checkbox"].cc-custom-checkbox:checked+label:after{margin-left:16px}.privacypolicies-com---pc-dialog input[type="checkbox"].cc-custom-checkbox:checked+label:before{background:#55D069}
+</style><style type="text/css">.privacypolicies-com---palette-dark.privacypolicies-com---nb{background-color:#111;color:#fff}.privacypolicies-com---palette-dark .cc-nb-title{color:#fff}.privacypolicies-com---palette-dark .cc-nb-text{color:#fff}.privacypolicies-com---palette-dark .cc-nb-okagree{color:#000;background-color:#ff0}.privacypolicies-com---palette-dark .cc-nb-okagree:focus{box-shadow:0 0 0 2px #3dd000}.privacypolicies-com---palette-dark .cc-nb-reject{color:#000;background-color:#ff0}.privacypolicies-com---palette-dark .cc-nb-reject:focus{box-shadow:0 0 0 2px #3dd000}.privacypolicies-com---palette-dark .cc-nb-changep{background-color:#eaeaea;color:#111}.privacypolicies-com---palette-dark .cc-nb-changep:focus{box-shadow:0 0 0 2px #3dd000}.privacypolicies-com---palette-dark .cc-pc-container{background:#212121}.privacypolicies-com---palette-dark .cc-pc-head{background:#212121;color:#fff;border-bottom:1px solid #111}.privacypolicies-com---palette-dark .cc-pc-head-title-headline{color:#fff}.privacypolicies-com---palette-dark .cc-pc-head-title-text{color:#fff}.privacypolicies-com---palette-dark .cc-pc-head-lang select{color:#212121}.privacypolicies-com---palette-dark .cc-pc-head-lang select:focus{box-shadow:0 0 0 2px #ff0}.privacypolicies-com---palette-dark .cc-pc-head-close{background:none;color:#e6e6e6}.privacypolicies-com---palette-dark .cc-pc-head-close:active,.privacypolicies-com---palette-dark .cc-pc-head-close:focus{border:2px solid #ff0}.privacypolicies-com---palette-dark .cc-cp-body{background:#292929 !important;color:#f5f5f5}.privacypolicies-com---palette-dark .cc-cp-body-tabs{color:#666;background:#e6e6e6}.privacypolicies-com---palette-dark .cc-cp-body-tabs-item{border-right-color:#ccc;border-bottom-color:#ccc}.privacypolicies-com---palette-dark .cc-cp-body-tabs-item-link{color:#666}.privacypolicies-com---palette-dark .cc-cp-body-tabs-item-link:hover{color:#666}.privacypolicies-com---palette-dark .cc-cp-body-tabs-item-link:focus{box-shadow:0 0 0 2px #292929}.privacypolicies-com---palette-dark .cc-cp-body-tabs-item[active=true]{background:#292929 !important}.privacypolicies-com---palette-dark .cc-cp-body-tabs-item[active=true] a{color:#f5f5f5}.privacypolicies-com---palette-dark .cc-cp-body-content{background:#292929 !important;color:#f5f5f5}.privacypolicies-com---palette-dark .cc-cp-body-content-entry-title{color:#fff}.privacypolicies-com---palette-dark .cc-cp-body-content-entry-text{color:#fff}.privacypolicies-com---palette-dark .cc-cp-body-content-entry a{color:#cce5ff}.privacypolicies-com---palette-dark .cc-cp-body-content-entry a:focus{box-shadow:0 0 0 2px #ff0}.privacypolicies-com---palette-dark .cc-cp-foot{background:#212121;border-top-color:#111}.privacypolicies-com---palette-dark .cc-cp-foot-byline{color:#fff}.privacypolicies-com---palette-dark .cc-cp-foot-byline a:focus{box-shadow:0 0 0 2px #ff0}.privacypolicies-com---palette-dark .cc-cp-foot-save{background:#ff0;color:#000}.privacypolicies-com---palette-dark .cc-cp-foot-save:focus{box-shadow:0 0 0 2px #3dd000}
+</style><style type="text/css">.privacypolicies-com---palette-light.privacypolicies-com---nb{background-color:#f2f2f2;color:#111}.privacypolicies-com---palette-light .cc-nb-title{color:#111}.privacypolicies-com---palette-light .cc-nb-text{color:#111}.privacypolicies-com---palette-light .cc-nb-okagree{color:#fff;background-color:green}.privacypolicies-com---palette-light .cc-nb-okagree:focus{box-shadow:0 0 0 2px #ff8d00}.privacypolicies-com---palette-light .cc-nb-reject{color:#fff;background-color:green}.privacypolicies-com---palette-light .cc-nb-reject:focus{box-shadow:0 0 0 2px #ff8d00}.privacypolicies-com---palette-light .cc-nb-changep{background-color:#eaeaea;color:#111}.privacypolicies-com---palette-light .cc-nb-changep:focus{box-shadow:0 0 0 2px #ff8d00}.privacypolicies-com---palette-light .cc-pc-container{background:#fff}.privacypolicies-com---palette-light .cc-pc-head{background:#fff;color:#111;border-bottom:1px solid #ccc}.privacypolicies-com---palette-light .cc-pc-head-title-headline{color:#111}.privacypolicies-com---palette-light .cc-pc-head-title-text{color:#111}.privacypolicies-com---palette-light .cc-pc-head-lang select{color:#111}.privacypolicies-com---palette-light .cc-pc-head-lang select:focus{box-shadow:0 0 0 2px green}.privacypolicies-com---palette-light .cc-pc-head-close{background:none;color:#666}.privacypolicies-com---palette-light .cc-pc-head-close:active,.privacypolicies-com---palette-light .cc-pc-head-close:focus{border:2px solid green}.privacypolicies-com---palette-light .cc-cp-body{background:#fbfbfb !important;color:#111}.privacypolicies-com---palette-light .cc-cp-body-tabs{color:#666;background:#e6e6e6}.privacypolicies-com---palette-light .cc-cp-body-tabs-item{border-right-color:#ccc;border-bottom-color:#ccc}.privacypolicies-com---palette-light .cc-cp-body-tabs-item-link{color:#666}.privacypolicies-com---palette-light .cc-cp-body-tabs-item-link:hover{color:#666}.privacypolicies-com---palette-light .cc-cp-body-tabs-item-link:focus{box-shadow:0 0 0 2px #fbfbfb}.privacypolicies-com---palette-light .cc-cp-body-tabs-item[active=true]{background:#fbfbfb !important}.privacypolicies-com---palette-light .cc-cp-body-tabs-item[active=true] a{color:#111}.privacypolicies-com---palette-light .cc-cp-body-content{background:#fbfbfb !important;color:#111}.privacypolicies-com---palette-light .cc-cp-body-content-entry-title{color:#111}.privacypolicies-com---palette-light .cc-cp-body-content-entry-text{color:#111}.privacypolicies-com---palette-light .cc-cp-body-content-entry a{color:#007bff}.privacypolicies-com---palette-light .cc-cp-body-content-entry a:focus{box-shadow:0 0 0 2px green}.privacypolicies-com---palette-light .cc-cp-foot{background:#f2f2f2;border-top-color:#ccc}.privacypolicies-com---palette-light .cc-cp-foot-byline{color:#111}.privacypolicies-com---palette-light .cc-cp-foot-byline a:focus{box-shadow:0 0 0 2px green}.privacypolicies-com---palette-light .cc-cp-foot-save{background:green;color:#fff}.privacypolicies-com---palette-light .cc-cp-foot-save:focus{box-shadow:0 0 0 2px #ff8d00}
+</style><style type="text/css">.privacypolicies-com---is-hidden{display:none}.privacypolicies-com---is-visible{display:block}
+</style><style type="text/css">.privacypolicies-com---nb.privacypolicies-com---lang-ar,.privacypolicies-com---pc-overlay.privacypolicies-com---lang-ar{text-align:right}
+</style><script type="text/javascript" initial-cookie-consent="tracking" src="./Install_Ruby_on_macos_using_rbenv_files/js"></script><script type="text/javascript" initial-cookie-consent="tracking">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-152719279-2');
+</script></head>
+
+
+<body><div class="privacypolicies-com---nb-interstitial-overlay privacypolicies-com---is-hidden"><div class="privacypolicies-com---reset privacypolicies-com---nb privacypolicies-com---palette-light privacypolicies-com---nb-interstitial privacypolicies-com---lang-en" id="privacypolicies-com---nb" role="dialog" aria-modal="true" aria-labelledby="cc-nb-title" aria-describedby="cc-nb-text"><div class="cc-nb-main-container"><div class="cc-nb-title-container"><p class="cc-nb-title" id="cc-nb-title">We use cookies</p></div><div class="cc-nb-text-container"><p class="cc-nb-text" id="cc-nb-text">We use cookies and other tracking technologies to improve your browsing experience on our website, to show you personalized content and targeted ads, to analyze our website traffic, and to understand where our visitors are coming from.</p></div><div class="cc-nb-buttons-container"><button class="cc-nb-okagree" role="button">I agree</button><button class="cc-nb-reject" role="button">I decline</button><button class="cc-nb-changep" role="button">Change my preferences</button></div></div></div></div>
+  <!--Bootstrap fluid container (col-lg-12) -->
+  <div class="container-fluid">
+    <!-- Navigation -->
+<div class="row justify-content-center">
+  <div class="col-lg-12 text-center">
+    <nav class="navbar fixed-top shadow navbar-expand-lg navbar-light bg-light">
+      <!-- Brand and navigation toggle -->
+      <a class="navbar-brand" href="https://www.thbe.org/">thbe.org</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- /Brand and navigation toggle -->
+
+      <!-- Navigation links -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Projects
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+              <a class="dropdown-item" href="https://www.thbe.org/projects/puppet/intro/">Puppet</a>
+              <a class="dropdown-item" href="https://www.thbe.org/projects/ansible/intro/">Ansible</a>
+              <a class="dropdown-item" href="https://www.thbe.org/projects/docker/intro/">Docker</a>
+              <a class="dropdown-item" href="https://www.thbe.org/projects/kubernetes/intro/">Kubernetes</a>
+              <a class="dropdown-item" href="https://www.thbe.org/projects/datacenter/intro">Datacenter</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              DIY
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+              <a class="dropdown-item" href="https://www.thbe.org/diy/mediacenter_mount/problem/">Media mount</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Snippets
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+              <a class="dropdown-item" href="https://www.thbe.org/snippets/shell/">shell</a>
+              <a class="dropdown-item" href="https://www.thbe.org/snippets/ffmpeg/">ffmpeg</a>
+              <a class="dropdown-item" href="https://www.thbe.org/snippets/fun/">fun</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html#" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Motorrad
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+              <a class="dropdown-item" href="https://www.thbe.org/motorcycle/vorwort/intro/">Vorwort</a>
+              <a class="dropdown-item" href="https://www.thbe.org/motorcycle/fitness/intro/">Fitness</a>
+              <a class="dropdown-item" href="https://www.thbe.org/motorcycle/psychologie/intro/">Psychologie</a>
+              <a class="dropdown-item" href="https://www.thbe.org/motorcycle/physik/intro/">Physik</a>
+              <a class="dropdown-item" href="https://www.thbe.org/motorcycle/technik/intro/">Technik</a>
+              <a class="dropdown-item" href="https://www.thbe.org/motorcycle/allgemein/intro/">Allgemein</a>
+              <a class="dropdown-item" href="https://www.thbe.org/motorcycle/rennstrecke/intro/">Rennstrecke</a>
+              <a class="dropdown-item" href="https://www.thbe.org/motorcycle/werkstatt/intro/">Werkstatt</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="https://www.thbe.org/motorcycle/meta/intro/">Meta-Daten</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.thbe.org/blog/">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.thbe.org/twitter/">Tweets</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html#" id="navbarDropdown5" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Archive
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown5">
+              <a class="dropdown-item" href="https://www.thbe.org/years/">By years</a>
+              <a class="dropdown-item" href="https://www.thbe.org/tags/">By tags</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- /Navigation links -->
+
+      <!-- Google search -->
+      <form class="d-flex" method="get" id="search-google" action="https://www.google.com/search" target="_blank" rel="noreferrer noopener">
+        <input type="hidden" name="sitesearch" value="https://www.thbe.org">
+        <input type="text" name="q" maxlength="255" value="" aria-label="Search" class="form-control me-2" id="inlineFormInputGroupUsername2" placeholder="Search via Google">
+        <button type="submit" class="btn btn-outline-danger">Search</button>
+      </form>
+      <!-- /Google search -->
+    </nav>
+  </div>
+</div>
+<!-- /Navigation -->
+
+    <!-- Banner -->
+<div class="banner">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-lg-12 text-center text-uppercase">
+      <br>
+      <h4>Hi folks! My name is</h4>
+      <h2>Thomas</h2>
+      <h4>SAP solution architect, Linux expert &amp; motorcycle enthusiast</h4>
+    </div>
+  </div>
+</div>
+<!-- /Banner -->
+
+
+    <div class="row justify-content-center">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8 text-justify">
+        <h2 class="text-center">
+  <a href="https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html">Install Ruby on macos using rbenv</a>
+</h2>
+
+<!-- Post information -->
+<div class="text-center">Thu, 18 Mar. 2021 by Thomas Bendler, approximately
+  3 min to read.
+  <br><a class="btn btn-outline-danger btn-sm" href="https://www.thbe.org/tags/macos">
+    #macos
+  </a><a class="btn btn-outline-danger btn-sm" href="https://www.thbe.org/tags/ruby">
+    #ruby
+  </a><a class="btn btn-outline-danger btn-sm" href="https://www.thbe.org/tags/rbenv">
+    #rbenv
+  </a><a class="btn btn-outline-danger btn-sm" href="https://www.thbe.org/tags/developer">
+    #developer
+  </a></div>
+<!-- /Post information -->
+
+<hr>
+
+<!-- Content -->
+<p>Although Ruby is part of macOS, its version is quite often not what you need in your development project. Recently I had the same problem and I searched for a solution to use multiple Ruby installations with different versions on my MacBook. The outcome was a combination of HomeBrew and rbenv which I would like to share in this blog post.</p>
+
+<p>As mentioned, I use Homebrew as my package manager on macOS to install, manage and update a variety of applications on my MacBook. To use the package manager you need to install Homebrew first:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/bin/bash <span class="nt">-c</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="si">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>If you run macOS on an M1, you need to add the new root directory for Homebrew to your shell</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Apple M1 homebrew settings</span>
+<span class="nb">eval</span> <span class="si">$(</span>/opt/homebrew/bin/brew shellenv<span class="si">)</span>
+</code></pre></div></div>
+
+<p>If you run macOS on traditional Apple hardware, don’t forget to add /usr/local/bin and /usr/local/sbin to your PATH variable. The next step is to install rbenv:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>brew <span class="nb">install </span>rbenv
+</code></pre></div></div>
+
+<p>rbenv is the tool that manages and controls the local ruby installations. To use rbenv I created a small snippet for my personal profile.d directory. To use this method, add the following snippet to the end of your .zshrc:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Local custom snippets</span>
+<span class="k">for </span>item <span class="k">in</span> <span class="si">$(</span><span class="nb">ls</span> <span class="nt">-1</span> <span class="k">${</span><span class="nv">HOME</span><span class="k">}</span>/.profile.d/<span class="k">*</span>.plugin.zsh<span class="si">)</span><span class="p">;</span> <span class="k">do</span>
+  <span class="o">[</span> <span class="nt">-e</span> <span class="s2">"</span><span class="k">${</span><span class="nv">item</span><span class="k">}</span><span class="s2">"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> <span class="s2">"</span><span class="k">${</span><span class="nv">item</span><span class="k">}</span><span class="s2">"</span>
+<span class="k">done</span>
+</code></pre></div></div>
+
+<p>In the .profile.d directory I created a script to make use of rbenv:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Custom plugin for zsh</span>
+<span class="c">#</span>
+<span class="c"># Ruby functions</span>
+<span class="c">#</span>
+<span class="c"># Author: Thomas Bendler &lt;code@thbe.org&gt;</span>
+<span class="c"># Date:   Thu Mar 18 16:37:23 CET 2021</span>
+<span class="c">#</span>
+
+<span class="c">### Path for rbenv installed ruby version ###</span>
+<span class="k">if </span>which rbenv <span class="o">&gt;</span> /dev/null<span class="p">;</span> <span class="k">then </span><span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>rbenv init -<span class="si">)</span><span class="s2">"</span><span class="p">;</span> <span class="k">fi</span>
+</code></pre></div></div>
+
+<p>After restarting the terminal the new settings are in place and active. To list the available Ruby versions you can use:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rbenv <span class="nb">install</span> <span class="nt">-l</span>
+</code></pre></div></div>
+
+<p>This command shows you what stable Ruby versions are available. The installation of a specific Ruby version can be performed with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rbenv <span class="nb">install </span>2.7.2
+</code></pre></div></div>
+
+<p>Per default, rbenv uses the system Ruby installation which is the one that comes with macOS. To check which versions are available and which versions could be used, enter:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rbenv versions
+</code></pre></div></div>
+
+<p>To set a version as default, you need the global command. Although the command sounds like your setting something global, it is only to set it for your user ID:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rbenv global 2.7.2
+</code></pre></div></div>
+
+<p>The next time you open your terminal again your working on the Ruby version you’ve set globally:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rbenv versions
+  system
+<span class="k">*</span> 2.7.2 <span class="o">(</span><span class="nb">set </span>by /Users/thbe/.rbenv/version<span class="o">)</span>
+  3.0.0
+<span class="err">$</span>
+</code></pre></div></div>
+
+<!-- /Content -->
+
+<br>
+<!-- Share buttons -->
+<div class="text-center">
+  <span class="introtext">Share on: </span>
+  <div id="share-buttons">
+    <div class="facebook" title="Share this on Facebook" onclick="window.open(&#39;https://www.facebook.com/sharer/sharer.php?u=https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html&#39;);">
+      <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"></path>
+      </svg>
+    </div>
+    <div class="twitter" title="Share this on Twitter" onclick="window.open(&#39;https://twitter.com/intent/tweet?text=https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html&#39;);">
+      <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"></path>
+      </svg>
+    </div>
+    <div class="linkedin" title="Share this on Linkedin" onclick="window.open(&#39;https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html&amp;title=&amp;summary=&amp;source=&#39;);">
+      <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+        <path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"></path>
+      </svg>
+    </div><div class="pinterest" title="Share this on Pinterest" onclick="window.open(&#39;https://pinterest.com/pin/create/button/?url=&amp;media=https://www.thbe.org/static/images/author/thbe.png&amp;description=&#39;);">
+      <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+        <path d="M256 597q0-108 37.5-203.5t103.5-166.5 152-123 185-78 202-26q158 0 294 66.5t221 193.5 85 287q0 96-19 188t-60 177-100 149.5-145 103-189 38.5q-68 0-135-32t-96-88q-10 39-28 112.5t-23.5 95-20.5 71-26 71-32 62.5-46 77.5-62 86.5l-14 5-9-10q-15-157-15-188 0-92 21.5-206.5t66.5-287.5 52-203q-32-65-32-169 0-83 52-156t132-73q61 0 95 40.5t34 102.5q0 66-44 191t-44 187q0 63 45 104.5t109 41.5q55 0 102-25t78.5-68 56-95 38-110.5 20-111 6.5-99.5q0-173-109.5-269.5t-285.5-96.5q-200 0-334 129.5t-134 328.5q0 44 12.5 85t27 65 27 45.5 12.5 30.5q0 28-15 73t-37 45q-2 0-17-3-51-15-90.5-56t-61-94.5-32.5-108-11-106.5z"></path>
+      </svg>
+    </div><div class="whatsapp" title="Share this on Whatsapp" onclick="window.open(&#39;whatsapp://send?text=https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html&#39;);">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"></path>
+      </svg>
+    </div>
+    <div class="mail" title="Share this through Email" onclick="window.open(&#39;mailto:?subject=https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html&amp;body=https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html&#39;);">
+      <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"></path>
+      </svg>
+    </div>
+    <div class="link" title="Copy the link" onclick="copyUrlToClipboard();">
+      <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<!-- /Share buttons -->
+
+
+<hr>
+<!-- Pagination -->
+<div class="row"><!-- Previous URL -->
+  <div class="col-auto me-auto">
+    <a href="https://www.thbe.org/posts/2021/03/07/SAP_S4_developer_edition.html">
+      <b>« Previous post</b>
+    </a>
+  </div>
+  <!-- /Previous URL --></div>
+<!-- /Pagination -->
+
+        <br>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+
+    <!-- Footer -->
+<footer>
+  <!-- Footer text -->
+  <div class="row justify-content-center align-items-center">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 text-center">
+      <br>
+      <a href="mailto:%20hello@thbe.org">hello@thbe.org</a> |
+      Version: v1.8.0 |
+      © 2022 by Thomas Bendler |
+      <a href="https://www.thbe.org/faq/">FAQ</a> |
+      <a href="https://www.thbe.org/policy/privacy/">Privacy</a> |
+      <a href="https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html#" id="open_preferences_center">Cookies</a>
+      <br><br>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+  <!-- /Footer text -->
+
+  <!-- Social -->
+  <div class="row justify-content-center align-items-center">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 text-center">
+      <div class="social"><a href="https://www.youtube.com/thbe007" aria-label="YouTube" target="blank_" rel="noreferrer noopener">
+          <i class="social fab fa-youtube"></i>
+        </a><a href="https://www.twitter.com/thbe007" aria-label="Twitter" target="blank_" rel="noreferrer noopener">
+          <i class="social fab fa-twitter"></i>
+        </a><a href="https://github.com/thbe" aria-label="Github" target="blank_" rel="noreferrer noopener">
+          <i class="social fab fa-github"></i>
+        </a><a href="https://hub.docker.com/r/thbe/" aria-label="Docker" target="blank_" rel="noreferrer noopener">
+          <i class="social fab fa-docker"></i>
+        </a><a href="https://dev.to/thbe" aria-label="DEV" target="blank_" rel="noreferrer noopener">
+          <i class="social fab fa-dev"></i>
+        </a><a href="https://stackoverflow.com/users/7359304/thbe" aria-label="StackOverflow" target="blank_" rel="noreferrer noopener">
+          <i class="social fab fa-stack-overflow"></i>
+        </a><a href="https://www.linkedin.com/in/thomas-bendler-bb8bb5199" aria-label="LinkedIn" target="blank_" rel="noreferrer noopener">
+          <i class="social fab fa-linkedin-in"></i>
+        </a><a href="https://www.packers.com/" aria-label="Green Bay Packers" target="blank_" rel="noreferrer noopener">
+          <i class="social fas fa-football-ball"></i>
+        </a><a href="https://www.valentinorossi.com/" aria-label="Valentino Rossi" target="blank_" rel="noreferrer noopener">
+          <i class="social fas fa-tachometer-alt"></i>
+        </a><br><br>
+      </div>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+  <!-- /Social -->
+</footer>
+<!-- /Footer -->
+
+  </div>
+  <!--/Bootstrap container -->
+  <!-- Javascript -->
+<script src="./Install_Ruby_on_macos_using_rbenv_files/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script async="" src="./Install_Ruby_on_macos_using_rbenv_files/modernizr-custom.min.js"></script>
+<script async="" src="./Install_Ruby_on_macos_using_rbenv_files/copy-url-to-clipboard.min.js"></script><!-- Cookie Consent by TermsFeed (https://www.cookieconsent.com/) -->
+<script type="text/javascript" src="./Install_Ruby_on_macos_using_rbenv_files/cookie-consent.min.js" charset="UTF-8"></script>
+<script type="text/javascript" charset="UTF-8">
+  document.addEventListener('DOMContentLoaded', function () {
+    cookieconsent.run({ "notice_banner_type": "interstitial",
+                        "consent_type": "express",
+                        "palette": "light",
+                        "language": "en",
+                        "page_load_consent_levels": ["strictly-necessary"],
+                        "notice_banner_reject_button_hide": false,
+                        "preferences_center_close_button_hide": false,
+                        "page_refresh_confirmation_buttons": false,
+                        "website_name": "thbe.org" });
+  });
+</script>
+
+<!-- Google Analytics -->
+
+
+<!-- /Google Analytics-->
+
+<noscript>ePrivacy and GPDR Cookie Consent by <a href="https://www.TermsFeed.com/" rel="nofollow">TermsFeed
+    Generator</a></noscript>
+<!-- /Cookie Consent by TermsFeed (https://www.cookieconsent.com/) -->
+<!-- /Javascript -->
+
+
+
+
+</body></html>

@@ -1,0 +1,22 @@
+This document provides info on how I am managing Rbenv (ruby versions) on a Mac
+
+References: https://www.thbe.org/posts/2021/03/18/Install_Ruby_on_macos_using_rbenv.html
+
+I've copied the contents of the URL locally here as I want to make sure I can always access it:
+Install_Ruby_on_macos_using_rbenv.html
+
+Next we want to make sure we've got virtual box and vagrant cli installed from vendor packages
+
+For virtualbox:
+
+Reference: https://cs.hofstra.edu/docs/pages/guides/vbox_mac.html
+You can check for updates through the menu in the GUI among other ways
+
+For vagrant:
+
+George.Holt@GeorgeHolt ~ % vagrant version
+Installed Version: 2.2.19
+Latest Version: 2.2.19
+
+You're running an up-to-date version of Vagrant!
+George.Holt@GeorgeHolt ~ %

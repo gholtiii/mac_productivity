@@ -1,0 +1,109 @@
+George.Holt@GeorgeHolt mac_productivity % brew info rbenv
+brew info rbenv
+rbenv: stable 1.2.0 (bottled), HEAD
+Ruby version manager
+https://github.com/rbenv/rbenv#readme
+/usr/local/Cellar/rbenv/1.1.2 (36 files, 69.6KB) *
+  Poured from bottle on 2021-07-16 at 12:04:31
+From: https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/rbenv.rb
+License: MIT
+==> Dependencies
+Required: ruby-build ✘
+==> Options
+--HEAD
+	Install HEAD version
+==> Analytics
+install: 38,816 (30 days), 121,029 (90 days), 416,409 (365 days)
+install-on-request: 38,671 (30 days), 120,591 (90 days), 414,865 (365 days)
+build-error: 0 (30 days)
+George.Holt@GeorgeHolt mac_productivity % brew update rbenv
+brew update rbenv
+Error: This command updates brew itself, and does not take formula names.
+Use `brew upgrade rbenv` instead.
+George.Holt@GeorgeHolt mac_productivity % brew upgrade rbenv
+brew upgrade rbenv
+Running `brew update --preinstall`...
+==> Auto-updated Homebrew!
+Updated 4 taps (hashicorp/tap, homebrew/cask-versions, homebrew/core and homebrew/cask).
+==> New Formulae
+go@1.17                koka                   kubekey                observerward           postgraphile           testkube               trivy
+==> Updated Formulae
+Updated 170 formulae.
+==> New Casks
+prowlarr
+==> Updated Casks
+Updated 133 casks.
+
+==> Upgrading 1 outdated package:
+rbenv 1.1.2 -> 1.2.0
+==> Downloading https://ghcr.io/v2/homebrew/core/ruby-build/manifests/20220218
+######################################################################################################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/ruby-build/blobs/sha256:13f78a48eac15febdbb7b71d891c9259a372246e29ca7c3efbb47aa774ea24d9
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:13f78a48eac15febdbb7b71d891c9259a372246e29ca7c3efbb47aa774ea24d9?se=2022-0
+######################################################################################################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/rbenv/manifests/1.2.0
+Already downloaded: /Users/George.Holt/Library/Caches/Homebrew/downloads/8476c387895a8e3b29021e07d9286d6475b10b19bf561983ee0bf884ee4cd693--rbenv-1.2.0.bottle_manifest.json
+==> Downloading https://ghcr.io/v2/homebrew/core/rbenv/blobs/sha256:a2ca52c4fe3b7000d9f84f81836ddcb9b3aea9c20ee092dd71c1e10cf3a6a19a
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:a2ca52c4fe3b7000d9f84f81836ddcb9b3aea9c20ee092dd71c1e10cf3a6a19a?se=2022-0
+######################################################################################################################################################## 100.0%
+==> Upgrading rbenv
+  1.1.2 -> 1.2.0
+
+==> Installing dependencies for rbenv: ruby-build
+==> Installing rbenv dependency: ruby-build
+==> Pouring ruby-build--20220218.all.bottle.tar.gz
+🍺  /usr/local/Cellar/ruby-build/20220218: 557 files, 278.8KB
+==> Installing rbenv
+==> Pouring rbenv--1.2.0.catalina.bottle.tar.gz
+🍺  /usr/local/Cellar/rbenv/1.2.0: 35 files, 106.8KB
+==> Running `brew cleanup rbenv`...
+Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
+Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+Removing: /usr/local/Cellar/rbenv/1.1.2... (36 files, 69.6KB)
+George.Holt@GeorgeHolt mac_productivity % rbenv versions
+rbenv versions
+  system
+* 2.7.3 (set by /Users/George.Holt/.rbenv/version)
+  3.0.2
+George.Holt@GeorgeHolt mac_productivity % rbenv list -l
+rbenv list -l
+rbenv: no such command `list'
+George.Holt@GeorgeHolt mac_productivity % rbenv install -l
+rbenv install -l
+2.6.9
+2.7.5
+3.0.3
+3.1.1
+jruby-9.3.3.0
+mruby-3.0.0
+rbx-5.0
+truffleruby-22.0.0.2
+truffleruby+graalvm-22.0.0.2
+
+Only latest stable releases for each Ruby implementation are shown.
+Use 'rbenv install --list-all / -L' to show all local versions.
+George.Holt@GeorgeHolt mac_productivity % rbenv install 3.1.1
+rbenv install 3.1.1
+Downloading openssl-1.1.1l.tar.gz...
+-> https://dqw8nmjcqpjn7.cloudfront.net/0b7a3e5e59c34827fe0c3a74b7ec8baef302b98fa80088d7f9153aa16fa76bd1
+Installing openssl-1.1.1l...
+Installed openssl-1.1.1l to /Users/George.Holt/.rbenv/versions/3.1.1
+
+Downloading ruby-3.1.1.tar.gz...
+-> https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.1.tar.gz
+Installing ruby-3.1.1...
+ruby-build: using readline from homebrew
+Installed ruby-3.1.1 to /Users/George.Holt/.rbenv/versions/3.1.1
+
+George.Holt@GeorgeHolt mac_productivity % rbenv versions
+rbenv versions
+  system
+* 2.7.3 (set by /Users/George.Holt/.rbenv/version)
+  3.0.2
+  3.1.1
+George.Holt@GeorgeHolt mac_productivity % rbenv global 3.1.1
+rbenv global 3.1.1
+George.Holt@GeorgeHolt mac_productivity % rbenv version
+rbenv version
+3.1.1 (set by /Users/George.Holt/.rbenv/version)
+George.Holt@GeorgeHolt mac_productivity %
