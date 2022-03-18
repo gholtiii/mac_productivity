@@ -20,3 +20,37 @@ Latest Version: 2.2.19
 
 You're running an up-to-date version of Vagrant!
 George.Holt@GeorgeHolt ~ %
+
+----
+
+Next make sure whatever shimmed version of ruby has the necessary gems:
+gem install rubocop (or add to Gemfile)
+
+----
+
+Next make sure bundle install runs properly on the Gemfile
+
+----
+
+Next do the following:
+# References
+
+* https://docs.microsoft.com/en-us/azure/azure-arc/servers/learn/quick-enable-hybrid-vm
+
+# Kitchen
+
+```bash
+brew install azure-cli
+az login
+```
+
+# Vagrant
+
+Use [https://github.com/chef/bento](https://github.com/chef/bento) to create the base box. That will create a `.box` file.
+
+```
+vagrant box add --name windows-2019 ./windows-2019-standard-virtualbox.box
+```
+
+
+I ran brew install for azure-cli and it upgraded my azure-cli and supporting environment to match the ruby 3.1.1 environment I was running under in rbenv - captured in azure_cli_upgrade.txt

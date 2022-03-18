@@ -1,0 +1,40 @@
+
+George.Holt@GeorgeHolt mac_productivity % rbenv version
+rbenv version
+3.1.1 (set by /Users/George.Holt/.rbenv/version)
+
+George.Holt@GeorgeHolt bt_turret_os % brew install azure-cli
+Running `brew update --preinstall`...
+==> Auto-updated Homebrew!
+Updated 2 taps (hashicorp/tap and homebrew/core).
+==> Updated Formulae
+Updated 2 formulae.
+
+azure-cli 2.32.0 is already installed but outdated (so it will be upgraded).
+==> Downloading https://ghcr.io/v2/homebrew/core/ca-certificates/manifests/2022-02-01
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/ca-certificates/blobs/sha256:40e00f88df310bc2dc42aefb3e834c0a3022f125fecdf21f26431d12a104dbc0
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:40e00f88df310bc2dc42aefb3e834c0a3022f125fecdf21f26431d12a104dbc0?se=2022-03-17T18%3A40%3A00Z&sig=mLNOWhtt
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/gdbm/manifests/1.23
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/gdbm/blobs/sha256:47e4821fa03790827af24698bf7cb833656d48e56bfb141b3093e8cabf5b1c88
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:47e4821fa03790827af24698bf7cb833656d48e56bfb141b3093e8cabf5b1c88?se=2022-03-17T18%3A40%3A00Z&sig=zhKawhth
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/sqlite/manifests/3.38.1
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/sqlite/blobs/sha256:29fc15cfa2d5a90ab9e1f8104231bbed3dd83e420b1c6ed7236d5d47963855b1
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:29fc15cfa2d5a90ab9e1f8104231bbed3dd83e420b1c6ed7236d5d47963855b1?se=2022-03-17T18%3A40%3A00Z&sig=S3nQUO6y
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/python/3.10/manifests/3.10.2
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/python/3.10/blobs/sha256:5c8db1f08449405f554517a8899bbb8b57596a4a14a393def42e78ffee057b3f
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:5c8db1f08449405f554517a8899bbb8b57596a4a14a393def42e78ffee057b3f?se=2022-03-17T18%3A40%3A00Z&sig=HX%2FB%2
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/azure-cli/manifests/2.34.1
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/azure-cli/blobs/sha256:7f9c4aa6cd4ac343ecd2948432db24683ad326c65198e7f621d360483a860e9e
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:7f9c4aa6cd4ac343ecd2948432db24683ad326c65198e7f621d360483a860e9e?se=2022-03-17T18%3A40%3A00Z&sig=b6L69FuA
+######################################################################## 100.0%
+==> Upgrading azure-cli
+  2.32.0 -> 2.34.1
