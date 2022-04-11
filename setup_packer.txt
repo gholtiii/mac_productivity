@@ -1,0 +1,64 @@
+We also want to install packer so that we can manually build chef bento boxes.  This is because Windows OSes are not available on the Hashicorp Vagrant Cloud.
+
+Instructions for installing packer via Homebrew are available here: https://learn.hashicorp.com/tutorials/packer/get-started-install-cli
+
+Also for MacOS command line tools upgrade - this was useful: https://stackoverflow.com/questions/42538171/how-to-update-xcode-command-line-tools
+
+Get the chef bento project:
+git clone git@github.com:chef/bento.git
+
+Build the windows 2019 virtual box template:
+- Note - to get this working I had to remove the step in the packer template that was trying to disable/remove MS Defender.
+- I then did the same disablement in the scripts/base_setup.ps1 script
+
+George.Holt@GeorgeHolt windows % packer build -only=virtualbox-iso windows-2019.json
+virtualbox-iso: output will be in this color.
+
+==> virtualbox-iso: Retrieving Guest additions
+==> virtualbox-iso: Trying /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso
+==> virtualbox-iso: Trying /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso
+==> virtualbox-iso: /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso => /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso
+==> virtualbox-iso: Retrieving ISO
+==> virtualbox-iso: Trying https://software-download.microsoft.com/download/pr/17763.737.190906-2324.rs5_release_svc_refresh_SERVER_EVAL_x64FRE_en-us_1.iso
+==> virtualbox-iso: Trying https://software-download.microsoft.com/download/pr/17763.737.190906-2324.rs5_release_svc_refresh_SERVER_EVAL_x64FRE_en-us_1.iso?checksum=sha1%3A3022424f777b66a698047ba1c37812026b9714c5
+...
+==> virtualbox-iso (vagrant): Creating Vagrant box for 'virtualbox' provider
+    virtualbox-iso (vagrant): Copying from artifact: ../../builds/packer-windows-2019-standard-virtualbox/packer-virtualbox-iso-1647648298-disk001.vmdk
+    virtualbox-iso (vagrant): Copying from artifact: ../../builds/packer-windows-2019-standard-virtualbox/packer-virtualbox-iso-1647648298.ovf
+    virtualbox-iso (vagrant): Renaming the OVF to box.ovf...
+    virtualbox-iso (vagrant): Using custom Vagrantfile: /Users/George.Holt/git/bento/packer_templates/windows/vagrantfile-windows.template
+    virtualbox-iso (vagrant): Compressing: Vagrantfile
+    virtualbox-iso (vagrant): Compressing: box.ovf
+    virtualbox-iso (vagrant): Compressing: metadata.json
+    virtualbox-iso (vagrant): Compressing: packer-virtualbox-iso-1647648298-disk001.vmdk
+Build 'virtualbox-iso' finished after 23 minutes 30 seconds.
+
+==> Wait completed after 23 minutes 30 seconds
+
+==> Builds finished. The artifacts of successful builds are:
+--> virtualbox-iso: VM files in directory: ../../builds/packer-windows-2019-standard-virtualbox
+--> virtualbox-iso: 'virtualbox' provider box: windows-2019-standard-virtualbox.box
+
+George.Holt@GeorgeHolt ~ % cd ~/git/bento/packer_templates/windows/
+cd ~/git/bento/packer_templates/windows/
+George.Holt@GeorgeHolt windows % pwd
+pwd
+/Users/George.Holt/git/bento/packer_templates/windows
+George.Holt@GeorgeHolt windows % lm
+lm
+total 8897384
+drwxr-xr-x  14 George.Holt  staff         448 Mar 18 20:28 .
+drwxr-xr-x  19 George.Holt  staff         608 Mar 18 15:19 ..
+drwxr-xr-x   7 George.Holt  staff         224 Mar 18 15:19 answer_files
+drwxr-xr-x   3 George.Holt  staff          96 Mar 18 15:19 cookbooks
+drwxr-xr-x   5 George.Holt  staff         160 Mar 18 19:02 scripts
+-rw-r--r--   1 George.Holt  staff         679 Mar 18 15:19 vagrantfile-windows-gen2.template
+-rw-r--r--   1 George.Holt  staff         546 Mar 18 15:19 vagrantfile-windows.template
+-rw-r--r--   1 George.Holt  staff        7747 Mar 18 15:19 windows-10.json
+-rw-r--r--   1 George.Holt  staff        4634 Mar 18 15:19 windows-10gen2.json
+-rw-r--r--   1 George.Holt  staff        7494 Mar 18 15:19 windows-2012.json
+-rw-r--r--   1 George.Holt  staff        7506 Mar 18 15:19 windows-2012r2.json
+-rw-r--r--   1 George.Holt  staff        7437 Mar 18 15:19 windows-2016.json
+-rw-r--r--   1 George.Holt  staff  4542688170 Mar 18 20:28 windows-2019-standard-virtualbox.box
+-rw-r--r--   1 George.Holt  staff        7419 Mar 18 20:04 windows-2019.json
+

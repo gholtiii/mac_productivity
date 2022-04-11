@@ -1,0 +1,3 @@
+You can download the latest splunk forwarder as of 2022-03-22 using the following:
+wget -O splunkforwarder-8.2.5-77015bc7a462-x64-release.msi "https://download.splunk.com/products/universalforwarder/releases/8.2.5/windows/splunkforwarder-8.\
+2.5-77015bc7a462-x64-release.msi"
