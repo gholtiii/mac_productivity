@@ -1,5 +1,0 @@
-We also want to install packer so that we can manually build chef bento boxes.  This is because Windows OSes are not available on the Hashicorp Vagrant Cloud.
-
-Instructions for installing packer via Homebrew are available here: https://learn.hashicorp.com/tutorials/packer/get-started-install-cli
-
-Also for MacOS command line tools upgrade - this was useful: https://stackoverflow.com/questions/42538171/how-to-update-xcode-command-line-tools
