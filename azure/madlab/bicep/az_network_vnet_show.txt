@@ -1,0 +1,884 @@
+Arguments
+--name vnet-spoke01-dev-eastus2 --resource-group rg-spoke01-dev-eastus2
+
+{
+  "addressSpace": {
+    "addressPrefixes": [
+      "10.242.16.0/22"
+    ]
+  },
+  "bgpCommunities": null,
+  "ddosProtectionPlan": null,
+  "dhcpOptions": {
+    "dnsServers": [
+      "10.242.17.10",
+      "10.242.17.11",
+      "10.242.16.8"
+    ]
+  },
+  "enableDdosProtection": false,
+  "enableVmProtection": null,
+  "encryption": null,
+  "etag": "W/\"b0903580-7958-48c3-b198-555a7ca55e95\"",
+  "extendedLocation": null,
+  "flowTimeoutInMinutes": null,
+  "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/virtualNetworks/vnet-spoke01-dev-eastus2",
+  "ipAllocations": null,
+  "location": "eastus2",
+  "name": "vnet-spoke01-dev-eastus2",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "rg-spoke01-dev-eastus2",
+  "resourceGuid": "9b0b161f-efc0-47dc-83e3-c098a0c29639",
+  "subnets": [
+    {
+      "addressPrefix": "10.242.16.0/24",
+      "addressPrefixes": null,
+      "applicationGatewayIpConfigurations": null,
+      "delegations": [],
+      "etag": "W/\"b0903580-7958-48c3-b198-555a7ca55e95\"",
+      "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/virtualNetworks/vnet-spoke01-dev-eastus2/subnets/subnet01-spoke01-dev-eastus2",
+      "ipAllocations": null,
+      "ipConfigurationProfiles": null,
+      "ipConfigurations": [
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/gitlab-rg/providers/Microsoft.Network/networkInterfaces/gitlab001-nic/ipConfigurations/gitlab002-ipc",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "gitlab-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/gitlab-runners-rg/providers/Microsoft.Network/networkInterfaces/gitlabrun001-nic/ipConfigurations/gitlabrun001-ipc",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "gitlab-runners-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/gitlab-runners-rg/providers/Microsoft.Network/networkInterfaces/gitlabrun002-nic/ipConfigurations/gitlabrun002-ipc",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "gitlab-runners-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/networkInterfaces/vm-dc03-deveus2184/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-spoke01-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/vm-e2k1302-deu2999/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/vm-e2k1303-deu2818/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/test-chef-rg/providers/Microsoft.Network/networkInterfaces/test-chef-vm879/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "test-chef-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/test-chef-rg/providers/Microsoft.Network/networkInterfaces/test-chef-client-vm748/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "test-chef-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/vm-winc01-deus2366/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/vm-e2k1303-deu2818/ipConfigurations/ipconfig2",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/vm-e2k1303-deu2818/ipConfigurations/ipconfig3",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/vm-e2k1303-deu2818/ipConfigurations/ipconfig4",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/vm-adrms01-deu2865/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/nic-aadc02-dev-eastus2/ipConfigurations/ipc-aadc02-dev-eastus2",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/aadcsql02-deus2131/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/aadc03-dev-eus2216/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/networkInterfaces/it-test-hostvm2301/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-spoke01-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/networkInterfaces/it-test-faultyvm403/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-spoke01-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/networkInterfaces/it-faultyvm-res-nic-f7d9582a590e44678cce878a8380ed32/ipConfigurations/ac9647b5c20146f0b1b4b8638b1674b9",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-spoke01-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/docker_win19_testing/providers/Microsoft.Network/networkInterfaces/win19-docker-core382/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "docker_win19_testing",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/docker_win19_testing/providers/Microsoft.Network/networkInterfaces/win19-docker-desk590/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "docker_win19_testing",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/bloodhound-rg/providers/Microsoft.Network/networkInterfaces/it-bhrunner-01248/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "bloodhound-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/bloodhound-rg/providers/Microsoft.Network/networkInterfaces/it-shrunner01386/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "bloodhound-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/bloodhound-rg/providers/Microsoft.Network/networkInterfaces/it-shrunner02572/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "bloodhound-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/vm-raffi01705/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/vm-bryan0168/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        }
+      ],
+      "name": "subnet01-spoke01-dev-eastus2",
+      "natGateway": null,
+      "networkSecurityGroup": null,
+      "privateEndpointNetworkPolicies": "Enabled",
+      "privateEndpoints": null,
+      "privateLinkServiceNetworkPolicies": "Enabled",
+      "provisioningState": "Succeeded",
+      "purpose": null,
+      "resourceGroup": "rg-spoke01-dev-eastus2",
+      "resourceNavigationLinks": null,
+      "routeTable": {
+        "disableBgpRoutePropagation": null,
+        "etag": null,
+        "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/routeTables/vnet-spoke01-dev-eastus2-rt",
+        "location": null,
+        "name": null,
+        "provisioningState": null,
+        "resourceGroup": "rg-spoke01-dev-eastus2",
+        "resourceGuid": null,
+        "routes": null,
+        "subnets": null,
+        "tags": null,
+        "type": null
+      },
+      "serviceAssociationLinks": null,
+      "serviceEndpointPolicies": null,
+      "serviceEndpoints": [
+        {
+          "locations": [
+            "eastus2",
+            "centralus"
+          ],
+          "provisioningState": "Succeeded",
+          "service": "Microsoft.Storage"
+        }
+      ],
+      "type": "Microsoft.Network/virtualNetworks/subnets"
+    },
+    {
+      "addressPrefix": "10.242.18.0/24",
+      "addressPrefixes": null,
+      "applicationGatewayIpConfigurations": null,
+      "delegations": [],
+      "etag": "W/\"b0903580-7958-48c3-b198-555a7ca55e95\"",
+      "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/virtualNetworks/vnet-spoke01-dev-eastus2/subnets/subnet03-spoke01-dev-eastus2",
+      "ipAllocations": null,
+      "ipConfigurationProfiles": null,
+      "ipConfigurations": [
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/test-chef-rg/providers/Microsoft.Network/networkInterfaces/bigboy-test-chef-vm501/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "test-chef-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/test-dns-rg/providers/Microsoft.Network/networkInterfaces/test-dns-vm472/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "test-dns-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/kitchen-default-rhel7-20200405T193919/providers/Microsoft.Network/networkInterfaces/nic/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "kitchen-default-rhel7-20200405T193919",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/gitlab-runners-rg/providers/Microsoft.Network/networkInterfaces/pkrni1pkybo7fph/ipConfigurations/ipconfig",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "gitlab-runners-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/ha-images/providers/Microsoft.Network/networkInterfaces/backup-storage-prvi.nic.194d8739-bf23-4076-bd3a-4a2355f58a64/ipConfigurations/blob-blob.privateEndpoint",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "ha-images",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/chef-automate-rg/providers/Microsoft.Network/networkInterfaces/chef-automate-vm68/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "chef-automate-rg",
+          "subnet": null
+        }
+      ],
+      "name": "subnet03-spoke01-dev-eastus2",
+      "natGateway": null,
+      "networkSecurityGroup": null,
+      "privateEndpointNetworkPolicies": "Disabled",
+      "privateEndpoints": [
+        {
+          "applicationSecurityGroups": null,
+          "customDnsConfigs": null,
+          "customNetworkInterfaceName": null,
+          "etag": null,
+          "extendedLocation": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/ha-images/providers/Microsoft.Network/privateEndpoints/backup-storage-prvi",
+          "ipConfigurations": null,
+          "location": null,
+          "manualPrivateLinkServiceConnections": null,
+          "name": null,
+          "networkInterfaces": null,
+          "privateLinkServiceConnections": null,
+          "provisioningState": null,
+          "resourceGroup": "ha-images",
+          "subnet": null,
+          "tags": null,
+          "type": null
+        }
+      ],
+      "privateLinkServiceNetworkPolicies": "Enabled",
+      "provisioningState": "Succeeded",
+      "purpose": "PrivateEndpoints",
+      "resourceGroup": "rg-spoke01-dev-eastus2",
+      "resourceNavigationLinks": null,
+      "routeTable": {
+        "disableBgpRoutePropagation": null,
+        "etag": null,
+        "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/routeTables/vnet-spoke01-dev-eastus2-rt",
+        "location": null,
+        "name": null,
+        "provisioningState": null,
+        "resourceGroup": "rg-spoke01-dev-eastus2",
+        "resourceGuid": null,
+        "routes": null,
+        "subnets": null,
+        "tags": null,
+        "type": null
+      },
+      "serviceAssociationLinks": null,
+      "serviceEndpointPolicies": null,
+      "serviceEndpoints": [
+        {
+          "locations": [
+            "eastus2",
+            "centralus"
+          ],
+          "provisioningState": "Succeeded",
+          "service": "Microsoft.Storage"
+        }
+      ],
+      "type": "Microsoft.Network/virtualNetworks/subnets"
+    },
+    {
+      "addressPrefix": "10.242.17.0/24",
+      "addressPrefixes": null,
+      "applicationGatewayIpConfigurations": null,
+      "delegations": [],
+      "etag": "W/\"b0903580-7958-48c3-b198-555a7ca55e95\"",
+      "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/virtualNetworks/vnet-spoke01-dev-eastus2/subnets/subnet02-spoke01-dev-eastus2",
+      "ipAllocations": null,
+      "ipConfigurationProfiles": null,
+      "ipConfigurations": [
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/nic-dc02-dev-eastus2/ipConfigurations/ipc-dc02-dev-eastus2",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/nic-dc01-dev-eastus2/ipConfigurations/ipc-dc01-dev-eastus2",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/nic-aadc01-dev-eastus2/ipConfigurations/ipc-aadc01-dev-eastus2",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/nic-aadcsql01-dev-eastus2/ipConfigurations/ipc-aadcsql01-dev-eastus2",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/nic-e2k1301-dev-eastus2/ipConfigurations/ipc-e2k1301-dev-eastus2",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg_ci_builders-eastus2/providers/Microsoft.Network/networkInterfaces/nic_ci_builder/ipConfigurations/nic_config_ci_builder",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg_ci_builders-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/nps-rg/providers/Microsoft.Network/networkInterfaces/nps-nic/ipConfigurations/nps-ipc",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "nps-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/gitlabtmp-rg/providers/Microsoft.Network/networkInterfaces/nic-gitlabtmp/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "gitlabtmp-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/gitlab-runners-rg/providers/Microsoft.Network/networkInterfaces/nic-gitlab-image/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "gitlab-runners-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/test-chef-rg/providers/Microsoft.Network/networkInterfaces/test-chef-client-vm-307/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "test-chef-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/nic-e2k1301-dev-eastus2/ipConfigurations/ipc-e2k1301-dev-eastus2-autoD",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/vm-e2ksmtp785/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/nic-e2k1301-dev-eastus2/ipConfigurations/ipconfig3",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/nic-e2k1301-dev-eastus2/ipConfigurations/ipconfig4",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/vm-winc03-deus2889/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/ha-images/providers/Microsoft.Network/networkInterfaces/ha-doc-test-nic/ipConfigurations/ha-doc-test-ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "ha-images",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg_gholt_test_sharedservices/providers/Microsoft.Network/networkInterfaces/it-ghl-low-dv5402/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg_gholt_test_sharedservices",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg_gholt_test_sharedservices/providers/Microsoft.Network/networkInterfaces/it-ghl-low-dv6310/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg_gholt_test_sharedservices",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/bloodhound-rg/providers/Microsoft.Network/networkInterfaces/vm-nic/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "bloodhound-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/bloodhound-rg/providers/Microsoft.Network/networkInterfaces/sh-nic/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "bloodhound-rg",
+          "subnet": null
+        },
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-ad-dev-eastus2/providers/Microsoft.Network/networkInterfaces/vm-e2k13tools01-dev-76/ipConfigurations/ipconfig1",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-ad-dev-eastus2",
+          "subnet": null
+        }
+      ],
+      "name": "subnet02-spoke01-dev-eastus2",
+      "natGateway": null,
+      "networkSecurityGroup": {
+        "defaultSecurityRules": null,
+        "etag": null,
+        "flowLogs": null,
+        "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/networkSecurityGroups/ha-lb-test",
+        "location": null,
+        "name": null,
+        "networkInterfaces": null,
+        "provisioningState": null,
+        "resourceGroup": "rg-spoke01-dev-eastus2",
+        "resourceGuid": null,
+        "securityRules": null,
+        "subnets": null,
+        "tags": null,
+        "type": null
+      },
+      "privateEndpointNetworkPolicies": "Disabled",
+      "privateEndpoints": null,
+      "privateLinkServiceNetworkPolicies": "Enabled",
+      "provisioningState": "Succeeded",
+      "purpose": null,
+      "resourceGroup": "rg-spoke01-dev-eastus2",
+      "resourceNavigationLinks": null,
+      "routeTable": {
+        "disableBgpRoutePropagation": null,
+        "etag": null,
+        "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/routeTables/vnet-spoke01-dev-eastus2-rt",
+        "location": null,
+        "name": null,
+        "provisioningState": null,
+        "resourceGroup": "rg-spoke01-dev-eastus2",
+        "resourceGuid": null,
+        "routes": null,
+        "subnets": null,
+        "tags": null,
+        "type": null
+      },
+      "serviceAssociationLinks": null,
+      "serviceEndpointPolicies": null,
+      "serviceEndpoints": [
+        {
+          "locations": [
+            "eastus2",
+            "centralus"
+          ],
+          "provisioningState": "Succeeded",
+          "service": "Microsoft.Storage"
+        }
+      ],
+      "type": "Microsoft.Network/virtualNetworks/subnets"
+    },
+    {
+      "addressPrefix": "10.242.19.0/27",
+      "addressPrefixes": null,
+      "applicationGatewayIpConfigurations": null,
+      "delegations": [],
+      "etag": "W/\"b0903580-7958-48c3-b198-555a7ca55e95\"",
+      "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/virtualNetworks/vnet-spoke01-dev-eastus2/subnets/AzureBastionSubnet",
+      "ipAllocations": null,
+      "ipConfigurationProfiles": null,
+      "ipConfigurations": [
+        {
+          "etag": null,
+          "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/bastionHosts/vnet-spoke01-dev-eastus2-bastion/bastionHostIpConfigurations/IpConf",
+          "name": null,
+          "privateIpAddress": null,
+          "privateIpAllocationMethod": null,
+          "provisioningState": null,
+          "publicIpAddress": null,
+          "resourceGroup": "rg-spoke01-dev-eastus2",
+          "subnet": null
+        }
+      ],
+      "name": "AzureBastionSubnet",
+      "natGateway": null,
+      "networkSecurityGroup": null,
+      "privateEndpointNetworkPolicies": "Enabled",
+      "privateEndpoints": null,
+      "privateLinkServiceNetworkPolicies": "Enabled",
+      "provisioningState": "Succeeded",
+      "purpose": null,
+      "resourceGroup": "rg-spoke01-dev-eastus2",
+      "resourceNavigationLinks": null,
+      "routeTable": null,
+      "serviceAssociationLinks": null,
+      "serviceEndpointPolicies": null,
+      "serviceEndpoints": [
+        {
+          "locations": [
+            "eastus2",
+            "centralus"
+          ],
+          "provisioningState": "Succeeded",
+          "service": "Microsoft.Storage"
+        }
+      ],
+      "type": "Microsoft.Network/virtualNetworks/subnets"
+    }
+  ],
+  "tags": {
+    "billto": "CCI",
+    "owner": "CCI-SharedServices",
+    "project": "Spoke 1 LIVE - EastUS2"
+  },
+  "type": "Microsoft.Network/virtualNetworks",
+  "virtualNetworkPeerings": [
+    {
+      "allowForwardedTraffic": false,
+      "allowGatewayTransit": false,
+      "allowVirtualNetworkAccess": true,
+      "doNotVerifyRemoteGateways": false,
+      "etag": "W/\"b0903580-7958-48c3-b198-555a7ca55e95\"",
+      "id": "/subscriptions/4dac0de0-97a9-4ed7-906c-1d84870ad194/resourceGroups/rg-spoke01-dev-eastus2/providers/Microsoft.Network/virtualNetworks/vnet-spoke01-dev-eastus2/virtualNetworkPeerings/hub03-live-eastus2",
+      "name": "hub03-live-eastus2",
+      "peeringState": "Connected",
+      "peeringSyncLevel": "FullyInSync",
+      "provisioningState": "Succeeded",
+      "remoteAddressSpace": {
+        "addressPrefixes": [
+          "10.242.2.0/24"
+        ]
+      },
+      "remoteBgpCommunities": null,
+      "remoteVirtualNetwork": {
+        "id": "/subscriptions/45dfd5c8-4afd-4799-bc00-bb043c4899ba/resourceGroups/hub03-live-eastus2-rg/providers/Microsoft.Network/virtualNetworks/hub03-live-eastus2-vnet",
+        "resourceGroup": "hub03-live-eastus2-rg"
+      },
+      "remoteVirtualNetworkAddressSpace": {
+        "addressPrefixes": []
+      },
+      "remoteVirtualNetworkEncryption": null,
+      "resourceGroup": "rg-spoke01-dev-eastus2",
+      "resourceGuid": "139df7fb-795c-0d08-32f2-82b09f9b1b7a",
+      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "useRemoteGateways": true
+    }
+  ]
+}
